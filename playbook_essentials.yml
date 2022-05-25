@@ -1,0 +1,31 @@
+---
+
+- hosts: localhost
+  become: true
+
+  tasks:
+  - name: Install packages and tools
+    apt:
+      pkg:
+      - net-tools
+      - neofetch
+      - bat
+      - git
+      state: latest
+      update_cache: true
+
+  - name: Install C/C++ compilers
+    apt:
+      pkg:
+      - gcc
+      - g++
+      state: latest
+      update_cache: true
+
+  - name: Install GTK libraries
+    apt:
+      pkg:
+      - libgtk-3-dev
+      - libnotify-dev 
+      state: latest
+      update_cache: true
